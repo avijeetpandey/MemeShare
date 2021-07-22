@@ -36,9 +36,13 @@ class MainActivity : AppCompatActivity() {
     }
 
     // function to get nextMeme
-    fun nextMeme(view: View) {}
+    fun nextMeme(view: View) {
+        loadMeme()git
+    }
 
 
     // function to share meme
-    fun shareMeme(view: View) {}
+    fun shareMeme(view: View) {
+
+    }
 }
