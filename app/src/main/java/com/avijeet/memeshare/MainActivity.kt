@@ -15,6 +15,9 @@ import com.bumptech.glide.request.target.Target
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
+
+    var currentImageUrl: String? = null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -32,8 +35,8 @@ class MainActivity : AppCompatActivity() {
             Request.Method.GET,
             url, null,
             { response ->
-                val url = response.getString("url")
-                Glide.with(this).load(url).listener(object : RequestListener<Drawable> {
+                currentImageUrl = response.getString("url")
+                Glide.with(this).load(currentImageUrl).listener(object : RequestListener<Drawable> {
                     override fun onLoadFailed(
                         e: GlideException?,
                         model: Any?,
