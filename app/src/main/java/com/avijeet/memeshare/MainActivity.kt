@@ -37,7 +37,7 @@ class MainActivity : AppCompatActivity() {
 
     // function to get nextMeme
     fun nextMeme(view: View) {
-        loadMeme()git
+        loadMeme()
     }
 
 
