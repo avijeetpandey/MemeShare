@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.View
 import com.android.volley.Request
 import com.android.volley.Response
+import com.android.volley.toolbox.JsonObjectRequest
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
 
@@ -20,13 +21,17 @@ class MainActivity : AppCompatActivity() {
         val url = "https://meme-api.herokuapp.com/gimme"
 
         // Request a string response from the provided url
-        val stringRequest = StringRequest(Request.Method.GET,url, Response.Listener <String>{ response ->
+        val jsonObjectRequest = JsonObjectRequest(
+            Request.Method.GET,
+            url,null,
+            { response ->
+                val url = response.getString("url")
 
         },
-            Response.ErrorListener {  })
+            {  })
 
-        // add the rquest to the queue
-        queue.add(stringRequest)
+        // add the request to the queue
+        queue.add(jsonObjectRequest)
     }
 
     // function to get nextMeme
