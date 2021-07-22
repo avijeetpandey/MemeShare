@@ -1,5 +1,6 @@
 package com.avijeet.memeshare
 
+import android.content.Intent
 import android.graphics.drawable.Drawable
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -73,6 +74,9 @@ class MainActivity : AppCompatActivity() {
 
     // function to share meme
     fun shareMeme(view: View) {
-
+        val intent = Intent(Intent.ACTION_SEND)
+        intent.putExtra(Intent.EXTRA_TEXT,"Hey checkout this cool meme I got from Reddit $currentImageUrl")
+        val chooser = Intent.createChooser(intent,"Share this meme using ...")
+        startActivity(chooser)
     }
 }
